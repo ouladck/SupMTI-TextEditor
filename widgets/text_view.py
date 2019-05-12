@@ -1,12 +1,5 @@
-from widgets import Gtk, Pango, g, PythonLexer, ColorfulStyle
+from widgets import Gtk, GtkSource
 from dialogs.search import Search
-
-STYLE = ColorfulStyle
-f = open(__file__)
-try:
-    SOURCE = f.read()
-finally:
-    f.close()
 
 
 class TextView:
@@ -22,37 +15,22 @@ class TextView:
         #self.vbox.add(self.scrolled_window)
         self.scrolled_window.show()
 
-        self.text_view = Gtk.TextView()
+        self.text_view = GtkSource.View()
+        self.text_view.set_show_line_numbers(True)
+        self.text_view.set_highlight_current_line(True)
+        self.text_view.set_auto_indent(True)
+        self.text_view.set_background_pattern(GtkSource.BackgroundPatternType.GRID)
         self.text_view.set_cursor_visible(True)
         self.text_view.set_left_margin(2)
         self.text_view.set_right_margin(2)
-        self.textbuffer = self.text_view.get_buffer()
-        self.textbuffer.set_text("This is some text inside of a Gtk.TextView.")
 
-        styles = {}
-        for token, value in PythonLexer().get_tokens("This is some text inside of a Gtk.TextView."):
-            while not STYLE.styles_token(token) and token.parent:
-                token = token.parent
-            if token not in styles:
-                styles[token] = self.textbuffer.create_tag()
-            start = self.textbuffer.get_end_iter()
-            self.textbuffer.insert_with_tags(start, value.encode('utf-8'), styles[token])
-
-        for token, tag in styles.iteritems():
-            style = STYLE.style_for_token(token)
-            if style['bgcolor']:
-                tag.set_property('background', '#' + style['bgcolor'])
-            if style['color']:
-                tag.set_property('foreground', '#' + style['color'])
-            if style['bold']:
-                tag.set_property('weight', Pango.WEIGHT_BOLD)
-            if style['italic']:
-                tag.set_property('style', Pango.STYLE_ITALIC)
-            if style['underline']:
-                tag.set_property('underline', Pango.UNDERLINE_SINGLE)
-
-        self.msg_i = 0
-        self.text_buffer = self.text_view.get_buffer()
+        self.textbuffer = GtkSource.Buffer()
+        self.lang_manager = GtkSource.LanguageManager()
+        self.textbuffer.set_highlight_syntax(True)
+        self.textbuffer.set_highlight_matching_brackets(True)
+        self.textbuffer.set_text("This is some var if text inside of a Gtk.TextView.")
+        self.text_view.set_buffer(self.textbuffer)
+        self.textbuffer.set_language(self.lang_manager.get_language('python'))
         self.scrolled_window.add_with_viewport(self.text_view)
 
         # self.text_view.connect("size-allocate", self.autoscroll)

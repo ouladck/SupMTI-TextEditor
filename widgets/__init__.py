@@ -5,6 +5,4 @@ from gi.repository import Gio
 from gi.repository import Pango
 from gi.repository import GdkPixbuf
 from gettext import gettext as g
-
-from pygments.lexer import Lexer as PythonLexer
-from pygments.styles.colorful import ColorfulStyle
+from gi.repository import GtkSource
