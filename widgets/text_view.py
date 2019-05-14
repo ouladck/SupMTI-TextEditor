@@ -4,7 +4,8 @@ from dialogs.search import Search
 
 class TextView:
 
-    def __init__(self):
+    def __init__(self, files):
+        self.files = files
         #self.create_textview()
         # self.create_toolbar()
         # self.create_buttons()
@@ -28,14 +29,13 @@ class TextView:
         self.lang_manager = GtkSource.LanguageManager()
         self.textbuffer.set_highlight_syntax(True)
         self.textbuffer.set_highlight_matching_brackets(True)
-        self.textbuffer.set_text("This is some var if text inside of a Gtk.TextView.")
+        self.textbuffer.set_text("print('Hello SupMTI')")
         self.text_view.set_buffer(self.textbuffer)
         self.textbuffer.set_language(self.lang_manager.get_language('python'))
         self.scrolled_window.add_with_viewport(self.text_view)
 
         # self.text_view.connect("size-allocate", self.autoscroll)
         self.text_view.show()
-
 
     def create_toolbar(self):
         toolbar = Gtk.Toolbar()
