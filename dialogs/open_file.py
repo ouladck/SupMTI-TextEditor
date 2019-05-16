@@ -1,4 +1,4 @@
-from widgets import Gtk, GtkSource
+from widgets import Gtk, GtkSource, g
 
 class OpenFile:
     """docstring for OpenFile."""
@@ -6,25 +6,27 @@ class OpenFile:
     def __init__(self, files, textview):
         self.files = files
         self.textview = textview
-        self.dialog = Gtk.FileChooserDialog("Please choose a file", None,
+
+    def run(self):
+        filename = ''
+        self.dialog = Gtk.FileChooserDialog(g("Please choose a file"), None,
             Gtk.FileChooserAction.OPEN,
             (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
              Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
-
-        # self.add_filters(dialog)
-
-    def run(self):
         self.response = self.dialog.run()
         if self.response == Gtk.ResponseType.OK:
-            print("Open clicked")
-            print("File selected: " + self.dialog.get_filename())
+            filename = self.dialog.get_filename()
             with open(self.dialog.get_filename(), 'r+') as file:
-                self.read_file(self.dialog.get_filename(), file)
+                self.read_file(filename, file)
+            self.dialog.destroy()
+            return [True, filename]
 
         elif self.response == Gtk.ResponseType.CANCEL:
             print("Cancel clicked")
+            self.dialog.destroy()
+            return [False, filename]
 
-        self.dialog.destroy()
+        return [False, 'New file (err)']
 
     def get_files(self):
         return self.files
@@ -36,6 +38,28 @@ class OpenFile:
         self.textview.textbuffer.set_language(guessed_language)
 
     def save(self):
-        print(self.textview.textbuffer.get_text(
+        filename = ''
+        self.save_dialog = Gtk.FileChooserDialog(g("Please choose a file"), None,
+            Gtk.FileChooserAction.SAVE,
+            (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+             Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
+
+        self.save_dialog.set_do_overwrite_confirmation(True)
+        content = self.textview.textbuffer.get_text(
             self.textview.textbuffer.get_start_iter(),
-            self.textview.textbuffer.get_end_iter(), True))
+            self.textview.textbuffer.get_end_iter(), True)
+
+        self.save_response = self.save_dialog.run()
+        if self.save_response == Gtk.ResponseType.OK:
+            filename = self.save_dialog.get_filename()
+            with open(filename, 'w+') as file:
+                file.writelines(content)
+            self.save_dialog.destroy()
+            return [True, filename]
+
+        elif self.save_response == Gtk.ResponseType.CANCEL:
+            print("Cancel clicked")
+            self.save_dialog.destroy()
+            return [False, filename]
+
+        return [False, '']
