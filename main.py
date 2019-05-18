@@ -2,6 +2,8 @@
 
 from windows.app import App
 
+files = dict()
+
 if __name__ == '__main__':
-    main = App()
+    main = App(files)
     main.main()
