@@ -13,7 +13,7 @@ class App:
         Gtk.main_quit()
 
     def about(self, widget):
-        About()
+        About(self.is_dev)
 
     def search(self, widget):
         self.textview.on_clear_clicked()
@@ -44,7 +44,8 @@ class App:
     def report(self, widget):
         webbrowser.open("https://github.com/karim88/SupMTI-TextEditor/issues")
 
-    def __init__(self, files):
+    def __init__(self, files, is_dev):
+        self.is_dev = is_dev
         self.files = files
         self.win = Gtk.Window()
         self.win.set_default_size(800, 600)
