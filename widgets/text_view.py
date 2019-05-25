@@ -1,12 +1,16 @@
 from widgets import Gtk, GtkSource
 from dialogs.search import Search
+from dialogs.replace import Replace
 
 
 class TextView:
 
     def __init__(self, files):
         self.files = files
-        print('tEXTvIEW')
+        self.found = []
+        self.tmp_found = []
+        self.match_start = None
+        self.match_end = None
         self.scrolled_window = Gtk.ScrolledWindow()
         self.scrolled_window.show()
 
@@ -27,12 +31,13 @@ class TextView:
         self.text_view.set_buffer(self.textbuffer)
         self.textbuffer.set_language(self.lang_manager.get_language('python'))
         self.scrolled_window.add_with_viewport(self.text_view)
+        self.tag_found = self.textbuffer.create_tag("found", background="yellow")
 
         self.text_view.show()
 
 
-    def on_search_clicked(self, widget):
-        dialog = Search(self)
+    def on_search_clicked(self):
+        dialog = Search()
         response = dialog.run()
         if response == Gtk.ResponseType.OK:
             cursor_mark = self.textbuffer.get_insert()
@@ -44,11 +49,40 @@ class TextView:
 
         dialog.destroy()
 
+    def on_replace_clicked(self):
+        dialog = Replace()
+        response = dialog.run()
+        if response == Gtk.ResponseType.OK:
+            cursor_mark = self.textbuffer.get_insert()
+            start = self.textbuffer.get_iter_at_mark(cursor_mark)
+            if start.get_offset() == self.textbuffer.get_char_count():
+                start = self.textbuffer.get_start_iter()
+
+            replaced_text = self.textbuffer.get_text(
+                self.textbuffer.get_start_iter(),
+                self.textbuffer.get_end_iter(),
+                True
+            ).replace(
+                dialog.entry.get_text(),
+                dialog.replace.get_text()
+            )
+            self.textbuffer.set_text(replaced_text)
+
+        dialog.destroy()
+
     def search_and_mark(self, text, start):
         end = self.textbuffer.get_end_iter()
         match = start.forward_search(text, 0, end)
 
         if match is not None:
-            match_start, match_end = match
-            self.textbuffer.apply_tag(self.tag_found, match_start, match_end)
-            self.search_and_mark(text, match_end)
+            self.tmp_found.append(match)
+            self.match_start, self.match_end = match
+            self.textbuffer.apply_tag(self.tag_found, self.match_start, self.match_end)
+            self.search_and_mark(text, self.match_end)
+        else:
+            self.found = self.tmp_found
+
+    def on_clear_clicked(self):
+        start = self.textbuffer.get_start_iter()
+        end = self.textbuffer.get_end_iter()
+        self.textbuffer.remove_tag(self.tag_found, start, end)

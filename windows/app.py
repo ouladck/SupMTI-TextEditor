@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import webbrowser
 
+from dialogs.search import Search
 from windows import Gtk, GdkPixbuf, g
 from dialogs.about import About
 from dialogs.open_file import OpenFile
@@ -16,6 +17,13 @@ class App:
 
     def search(self, widget):
         print("search")
+        self.textview.on_clear_clicked()
+        self.textview.on_search_clicked()
+
+    def replace(self, widget):
+        print("replace")
+        self.textview.on_clear_clicked()
+        self.textview.on_replace_clicked()
 
     def save(self, widget):
         is_saved, filename = self.open_file_inst.save()
@@ -74,28 +82,35 @@ class App:
         self.save_widget = Gtk.MenuItem(g("Save"))
         self.save_widget.connect('activate', self.save)
         self.m.append(self.save_widget)
-        """ Translate """
-        self.tra = Gtk.MenuItem(g("Translate this Application"))
-        self.tra.connect('activate', self.translation)
-        self.m.append(self.tra)
-        """ Report a bug """
-        self.bug = Gtk.MenuItem(g("Report a bug"))
-        self.bug.connect('activate', self.report)
-        self.m.append(self.bug)
-        """ About """
-        self.abt = Gtk.MenuItem(g("About"))
-        self.abt.connect('activate', self.about)
-        self.m.append(self.abt)
+        """ Search """
+        self.search_menu = Gtk.MenuItem(g('Find'))
+        self.m.append(self.search_menu)
+        self.search_menu.connect('activate', self.search)
+        """ Search & Eeplace """
+        self.replace_menu = Gtk.MenuItem(g('Find & Replace'))
+        self.m.append(self.replace_menu)
+        self.replace_menu.connect('activate', self.replace)
         """ Exit """
         self.xit = Gtk.MenuItem(g("Exit"))
         self.xit.connect('activate', self.destroy)
         self.m.append(self.xit)
 
-        """ Search """
-
-        self.search_menu = Gtk.ImageMenuItem(Gtk.STOCK_NEW)
-        self.menu.append(self.search_menu)
-        self.search_menu.connect('activate', self.search)
+        self.hmenu = Gtk.MenuItem(g("Help"))
+        self.menu.append(self.hmenu)
+        self.m2 = Gtk.Menu()
+        self.hmenu.set_submenu(self.m2)
+        """ Translate """
+        self.tra = Gtk.MenuItem(g("Translate this Application"))
+        self.tra.connect('activate', self.translation)
+        self.m2.append(self.tra)
+        """ Report a bug """
+        self.bug = Gtk.MenuItem(g("Report a bug"))
+        self.bug.connect('activate', self.report)
+        self.m2.append(self.bug)
+        """ About """
+        self.abt = Gtk.MenuItem(g("About"))
+        self.abt.connect('activate', self.about)
+        self.m2.append(self.abt)
 
         self.head.pack_start(self.menu)
         self.box.pack_end(self.bar, False, False, 0)
