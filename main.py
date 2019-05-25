@@ -5,7 +5,7 @@ import gettext
 
 files = dict()
 APP_NAME = "supmti-texteditor"
-APP_DIR = "./locales"
+APP_DIR = "/user/share/locale"
 gettext.bindtextdomain(APP_NAME, APP_DIR)
 gettext.textdomain(APP_NAME)
 g = gettext.gettext

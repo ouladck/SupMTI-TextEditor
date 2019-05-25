@@ -18,7 +18,7 @@ class About:
         about.set_website("https://github.com/karim88/SupMTI-TextEditor")
         about.set_website_label(g("Github repo."))
         about.set_authors(["Karim Oulad Chalha"])
-        with open("./LICENSE", 'r+') as license_file:
+        with open("/user/share/SupMTI-TextEditor/LICENSE", 'r+') as license_file:
             license_text = ''.join(license_file.readlines())
             about.set_license(license_text)
         about.set_translator_credits(g("translator-credits"))
