@@ -7,10 +7,10 @@ class About:
         about.set_program_name(g("SupMTI-TextEditor"))
         about.set_logo(
             GdkPixbuf
-                .Pixbuf.new_from_file("./assets/supmti.png"))
+                .Pixbuf.new_from_file("/usr/share/pixmaps/supmti.png"))
         about.set_icon(
             GdkPixbuf.Pixbuf
-                .new_from_file("./assets/supmti.png"))
+                .new_from_file("/usr/share/pixmaps/supmti.png"))
         about.set_version("1.0")
         about.set_comments(
             g("A stupid Text Editor make with PyGTK.\nIt's a part of my Python Min-project for SupMTI Rabat."))

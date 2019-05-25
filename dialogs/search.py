@@ -3,7 +3,7 @@ from dialogs import Gtk, GdkPixbuf, g
 
 class Search(Gtk.Dialog):
 
-    def __init__(self, is_replace):
+    def __init__(self):
         Gtk.Dialog.__init__(self, g("Search"), None,
             Gtk.DialogFlags.MODAL, buttons=(
             Gtk.STOCK_FIND, Gtk.ResponseType.OK,
@@ -16,12 +16,5 @@ class Search(Gtk.Dialog):
 
         self.entry = Gtk.Entry()
         box.add(self.entry)
-
-        if is_replace:
-            label1 = Gtk.Label(g("Insert text you want to replace with:"))
-            box.add(label1)
-
-            self.replace = Gtk.Entry()
-            box.add(self.replace)
 
         self.show_all()
