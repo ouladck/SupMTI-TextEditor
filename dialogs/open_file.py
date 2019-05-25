@@ -22,11 +22,10 @@ class OpenFile:
             return [True, filename]
 
         elif self.response == Gtk.ResponseType.CANCEL:
-            print("Cancel clicked")
             self.dialog.destroy()
             return [False, filename]
 
-        return [False, 'New file (err)']
+        return [False, g('New file (err)')]
 
     def get_files(self):
         return self.files
@@ -58,7 +57,6 @@ class OpenFile:
             return [True, filename]
 
         elif self.save_response == Gtk.ResponseType.CANCEL:
-            print("Cancel clicked")
             self.save_dialog.destroy()
             return [False, filename]
 

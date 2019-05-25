@@ -16,12 +16,10 @@ class App:
         About()
 
     def search(self, widget):
-        print("search")
         self.textview.on_clear_clicked()
         self.textview.on_search_clicked()
 
     def replace(self, widget):
-        print("replace")
         self.textview.on_clear_clicked()
         self.textview.on_replace_clicked()
 
@@ -32,7 +30,7 @@ class App:
         else:
             self.err_dialog = Gtk.MessageDialog(self, 0, Gtk.MessageType.INFO,
                                        Gtk.ButtonsType.OK, g("Alert"))
-            self.err_dialog.format_secondary_text("File %s not saved." % filename)
+            self.err_dialog.format_secondary_text(g("File %s not saved.") % filename)
             self.err_dialog.run()
 
     def open_file(self, widget):
@@ -41,7 +39,7 @@ class App:
             self.bar.push(0, filename)
 
     def translation(self, widget):
-        webbrowser.open("https://www.transifex.com/projects/p/planksetting")
+        webbrowser.open("https://github.com/karim88/SupMTI-TextEditor")
 
     def report(self, widget):
         webbrowser.open("https://github.com/karim88/SupMTI-TextEditor/issues")

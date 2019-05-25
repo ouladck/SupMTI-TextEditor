@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-25 03:36+0000\n"
+"PO-Revision-Date: 2019-05-25 04:08+0000\n"
+"Language-Team: Arabic <ouladchalha.k@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"Last-Translator: Karim Oulad Chalha <ouladchalha.k@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr\n"
+
+#: dialogs/about.py:7 windows/app.py:55
+msgid "SupMTI-TextEditor"
+msgstr "SupMTI-TextEditor"
+
+#: dialogs/about.py:16
+msgid ""
+"A stupid Text Editor make with PyGTK.\n"
+"It's a part of my Python Min-project for SupMTI Rabat."
+msgstr "Un stupid editor de vtexte fait en utilisant PyGTK."
+
+#: dialogs/about.py:17
+msgid "Copyright (c) 2019 Karim Oulad Chalha"
+msgstr "Copyright (c) 2019 Karim Oulad Chalha"
+
+#: dialogs/about.py:19
+msgid "Github repo."
+msgstr "Github repo."
+
+#: dialogs/about.py:24
+msgid "translator-credits"
+msgstr "translator-credits"
+
+#: dialogs/open_file.py:12 dialogs/open_file.py:41
+msgid "Please choose a file"
+msgstr "veuillez choisir un fichier"
+
+#: dialogs/open_file.py:28
+msgid "New file (err)"
+msgstr "Nouveau fichier"
+
+#: dialogs/replace.py:7
+msgid "Search & replace"
+msgstr "Rechercher et remplacer"
+
+#: dialogs/replace.py:14 dialogs/search.py:14
+msgid "Insert text you want to search for:"
+msgstr "Insérer le texte que vous souhaitez rechercher:"
+
+#: dialogs/replace.py:20 dialogs/search.py:21
+msgid "Insert text you want to replace with:"
+msgstr "Insérer le texte que vous souhaitez remplacer par:"
+
+#: dialogs/search.py:7
+msgid "Search"
+msgstr "Chercher"
+
+#: windows/app.py:32
+msgid "Alert"
+msgstr "Alerte"
+
+#: windows/app.py:33
+#, python-format
+msgid "File %s not saved."
+msgstr "Le fichier %s n'est pas enregistré."
+
+#: windows/app.py:69
+msgid "New file"
+msgstr "Nouveau fichier"
+
+#: windows/app.py:71
+msgid "Menu"
+msgstr "Menu"
+
+#: windows/app.py:76
+msgid "Open file"
+msgstr "Ouvrir un fichier"
+
+#: windows/app.py:80
+msgid "Save"
+msgstr "Enregistrer"
+
+#: windows/app.py:84
+msgid "Find"
+msgstr "Search"
+
+#: windows/app.py:88
+msgid "Find & Replace"
+msgstr "Rechercher et remplacer"
+
+#: windows/app.py:92
+msgid "Exit"
+msgstr "Sortir"
+
+#: windows/app.py:96
+msgid "Help"
+msgstr "Aide"
+
+#: windows/app.py:101
+msgid "Translate this Application"
+msgstr "Traduire cette application"
+
+#: windows/app.py:105
+msgid "Report a bug"
+msgstr "Signaler un bug"
+
+#: windows/app.py:109
+msgid "About"
+msgstr "À propos"

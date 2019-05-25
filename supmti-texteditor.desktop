@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=SupMTI TextEditor
+Name[ar]=محرر النصوص أخر
+Name[fr]=SupMTI TextEditor
+Type=Application
+Exec=supmti-texteditor
+Terminal=false
+Icon=supmti
+Comment=A stupid Text Editor make with PyGTK.\nIt's a part of my Python Min-project for SupMTI Rabat.
+Comment[ar]=محرر النصوص أخر فقط.
+Comment[fr]=Un stupid editor de vtexte fait en utilisant PyGTK.
+Categories=Development;
