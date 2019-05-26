@@ -38,6 +38,38 @@ class OpenFile:
 
     def save(self):
         filename = ''
+        content = self.textview.textbuffer.get_text(
+            self.textview.textbuffer.get_start_iter(),
+            self.textview.textbuffer.get_end_iter(), True)
+        if len(self.files) > 0:
+            filename = list(self.files.keys())[len(self.files) - 1]
+            with open(filename, 'w+') as file:
+                file.writelines(content)
+                return [True, filename]
+        else:
+            self.save_dialog = Gtk.FileChooserDialog(g("Please choose a file"), None,
+                Gtk.FileChooserAction.SAVE,
+                (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+                 Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
+
+            self.save_dialog.set_do_overwrite_confirmation(True)
+
+            self.save_response = self.save_dialog.run()
+            if self.save_response == Gtk.ResponseType.OK:
+                filename = self.save_dialog.get_filename()
+                with open(filename, 'w+') as file:
+                    file.writelines(content)
+                self.save_dialog.destroy()
+                return [True, filename]
+
+            elif self.save_response == Gtk.ResponseType.CANCEL:
+                self.save_dialog.destroy()
+                return [False, filename]
+
+        return [False, '']
+
+    def save_as(self):
+        filename = ''
         self.save_dialog = Gtk.FileChooserDialog(g("Please choose a file"), None,
             Gtk.FileChooserAction.SAVE,
             (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,

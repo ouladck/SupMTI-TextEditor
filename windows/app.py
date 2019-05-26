@@ -2,7 +2,7 @@
 import webbrowser
 
 from dialogs.search import Search
-from windows import Gtk, GdkPixbuf, g
+from windows import Gtk, Gdk, g
 from dialogs.about import About
 from dialogs.open_file import OpenFile
 from widgets.text_view import TextView
@@ -28,15 +28,46 @@ class App:
         if is_saved:
             self.bar.push(0, filename)
         else:
-            self.err_dialog = Gtk.MessageDialog(self, 0, Gtk.MessageType.INFO,
+            self.err_dialog = Gtk.MessageDialog(self, Gtk.DialogFlags.MODAL, Gtk.MessageType.INFO,
                                        Gtk.ButtonsType.OK, g("Alert"))
             self.err_dialog.format_secondary_text(g("File %s not saved.") % filename)
-            self.err_dialog.run()
+            self.err_dialog.show()
+
+    def save_as(self, widget):
+        is_saved, filename = self.open_file_inst.save_as()
+        if is_saved:
+            self.bar.push(0, filename)
+        else:
+            self.err_dialog = Gtk.MessageDialog(self, Gtk.DialogFlags.MODAL, Gtk.MessageType.INFO,
+                                       Gtk.ButtonsType.OK, g("Alert"))
+            self.err_dialog.format_secondary_text(g("File %s not saved.") % filename)
+            self.err_dialog.show()
 
     def open_file(self, widget):
         is_opened, filename = self.open_file_inst.run()
         if is_opened:
             self.bar.push(0, filename)
+
+    def _key_press_event(self, widget, event):
+        keyval = event.keyval
+        keyval_name = Gdk.keyval_name(keyval)
+        state = event.state
+        ctrl = (state & Gdk.ModifierType.CONTROL_MASK)
+        if ctrl and keyval_name == 's':
+            self.save(widget)
+        elif ctrl and keyval_name == 'o':
+            self.open_file(widget)
+        elif ctrl and keyval_name == 'q':
+            self.destroy(widget)
+        elif ctrl and keyval_name == 'r':
+            self.replace(widget)
+        elif ctrl and keyval_name == 'f':
+            self.search(widget)
+        elif keyval_name == "Escape":
+            self.destroy(widget)
+        else:
+            return False
+        return True
 
     def translation(self, widget):
         webbrowser.open("https://github.com/karim88/SupMTI-TextEditor")
@@ -49,6 +80,8 @@ class App:
         self.files = files
         self.win = Gtk.Window()
         self.win.set_default_size(800, 600)
+
+        self.win.connect('key-press-event', self._key_press_event)
 
         # HeadBar
         self.head = Gtk.HeaderBar()
@@ -80,6 +113,10 @@ class App:
         """ Save """
         self.save_widget = Gtk.MenuItem(g("Save"))
         self.save_widget.connect('activate', self.save)
+        self.m.append(self.save_widget)
+        """ Save as """
+        self.save_widget = Gtk.MenuItem(g("Save as"))
+        self.save_widget.connect('activate', self.save_as)
         self.m.append(self.save_widget)
         """ Search """
         self.search_menu = Gtk.MenuItem(g('Find'))

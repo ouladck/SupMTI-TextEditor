@@ -1,7 +1,7 @@
 [DEBREATE-0.7.13]
 <<CTRL>>
 Package: supmti-texteditor
-Version: 1.1
+Version: 1.2
 Maintainer: Karim Oulad Chalha <ouladchalha.k@gmail.com>
 Homepage: https://karimslab.com
 Architecture: all
@@ -54,7 +54,7 @@ Description: A stupid Text Editor make with PyGTK.
 1
 [FILENAME=supmti-texteditor]
 Name=SupMTI TextEditor
-Version=1.1
+Version=1.2
 Exec=python3 /usr/share/SupMTI-TextEditor/main.py prod
 Comment=A stupid Text Editor make with PyGTK.\nIt's a part of my Python Min-project for SupMTI Rabat.
 Icon=supmti
