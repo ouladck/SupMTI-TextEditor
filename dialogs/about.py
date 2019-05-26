@@ -4,7 +4,7 @@ from dialogs import Gtk, GdkPixbuf, g
 class About:
     def __init__(self, is_dev):
         image = "./assets/supmti.png" if is_dev else "/usr/share/pixmaps/supmti.png"
-        license = "./LICENSE" if is_dev else "/user/share/SupMTI-TextEditor/LICENSE"
+        license = "./LICENSE" if is_dev else "/usr/share/SupMTI-TextEditor/LICENSE"
         about = Gtk.AboutDialog()
         about.set_program_name(g("SupMTI-TextEditor"))
         about.set_logo(

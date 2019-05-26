@@ -11,7 +11,7 @@ if len(params) > 1:
     if params[1] == 'prod':
         is_dev = False
 APP_NAME = "supmti-texteditor"
-APP_DIR = "./locales" if is_dev else "/user/share/locale"
+APP_DIR = "./locales" if is_dev else "/usr/share/locale"
 
 print(APP_DIR)
 gettext.bindtextdomain(APP_NAME, APP_DIR)
