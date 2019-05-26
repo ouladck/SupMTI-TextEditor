@@ -14,15 +14,15 @@ Description: A stupid Text Editor make with PyGTK.
 <</CTRL>>
 <<FILES>>
 1
-/home/karim/PycharmProjects/SupMTI-TextEditor/locales -> locales -> /usr/share/locale
-/home/karim/PycharmProjects/SupMTI-TextEditor/assets/supmti.png -> supmti.png -> /usr/share/pixmaps
-/home/karim/PycharmProjects/SupMTI-TextEditor/supmti-texteditor.desktop -> supmti-texteditor.desktop -> /usr/share/applications
-/home/karim/PycharmProjects/SupMTI-TextEditor/dialogs -> dialogs -> /usr/share/SupMTI-TextEditor/dialogs
-/home/karim/PycharmProjects/SupMTI-TextEditor/widgets -> widgets -> /usr/share/SupMTI-TextEditor/widgets
-/home/karim/PycharmProjects/SupMTI-TextEditor/windows -> windows -> /usr/share/SupMTI-TextEditor/windows
-/home/karim/PycharmProjects/SupMTI-TextEditor/LICENSE -> LICENSE -> /usr/share/SupMTI-TextEditor/
-/home/karim/PycharmProjects/SupMTI-TextEditor/main.py* -> main.py -> /usr/share/SupMTI-TextEditor/
 /home/karim/PycharmProjects/SupMTI-TextEditor/README.md -> README.md -> /usr/share/SupMTI-TextEditor/
+/home/karim/PycharmProjects/SupMTI-TextEditor/main.py* -> main.py -> /usr/share/SupMTI-TextEditor/
+/home/karim/PycharmProjects/SupMTI-TextEditor/LICENSE -> LICENSE -> /usr/share/SupMTI-TextEditor/
+/home/karim/PycharmProjects/SupMTI-TextEditor/windows -> windows -> /usr/share/SupMTI-TextEditor/windows
+/home/karim/PycharmProjects/SupMTI-TextEditor/widgets -> widgets -> /usr/share/SupMTI-TextEditor/widgets
+/home/karim/PycharmProjects/SupMTI-TextEditor/dialogs -> dialogs -> /usr/share/SupMTI-TextEditor/dialogs
+/home/karim/PycharmProjects/SupMTI-TextEditor/supmti-texteditor.desktop -> supmti-texteditor.desktop -> /usr/share/applications
+/home/karim/PycharmProjects/SupMTI-TextEditor/assets/supmti.png -> supmti.png -> /usr/share/pixmaps
+/home/karim/PycharmProjects/SupMTI-TextEditor/locales -> locales -> /usr/share/locale
 <</FILES>>
 <<SCRIPTS>>
 <<PREINST>>
@@ -42,6 +42,13 @@ Description: A stupid Text Editor make with PyGTK.
 <<DEST>>DEFAULT<</DEST>>
  () ; urgency=low
 
+  * Adding shortcut support
+
+ --  <>  Sun, 26 May 2019 04:13:14 +0000
+
+
+() ; urgency=low
+
   * Fixing About dialog bug
 
  --  <>  Sat, 25 May 2019 22:39:52 +0000
@@ -54,7 +61,7 @@ Description: A stupid Text Editor make with PyGTK.
 1
 [FILENAME=supmti-texteditor]
 Name=SupMTI TextEditor
-Version=1.2
+Version=1.0
 Exec=python3 /usr/share/SupMTI-TextEditor/main.py prod
 Comment=A stupid Text Editor make with PyGTK.\nIt's a part of my Python Min-project for SupMTI Rabat.
 Icon=supmti
@@ -62,6 +69,7 @@ Type=Application
 Terminal=true
 StartupNotify=true
 Encoding=UTF-8
+Categories=Development;
 <</MENU>>
 <<BUILD>>
 1
