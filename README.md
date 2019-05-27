@@ -46,3 +46,14 @@ C, C++, Java, C#, Fortran, sh, Javascript, Python, Perl, Ruby, PHP, TCL, XML, HT
 
 Utilisation de `gettext` pour l'internationalisation de l'application.
 `SupMti TextEditor` est disponible en Arabe, Français et Anglais.
+
+
+# Raccourcis
+
+| Action  | Raccourci |
+| ------------- | ------------- |
+| Sauvgarder  | `CTL` + `s`  |
+| Rechercher  | `CTL` + `f`  |
+| Replacer  | `CTL` + `r`  |
+| Quiter  | `CTL` + `q`  |
+| Ouvrir  | `CTL` + `o`  |
