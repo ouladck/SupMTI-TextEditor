@@ -15,7 +15,7 @@ class About:
                 .new_from_file(image))
         about.set_version("1.2.1")
         about.set_comments(
-            g("A stupid Text Editor make with PyGTK.\nIt's a part of my Python Min-project for SupMTI Rabat."))
+            g("A stupid Text Editor made with PyGTK.\nIt's a part of my Python Min-project for SupMTI Rabat."))
         about.set_copyright(g("Copyright (c) 2019 Karim Oulad Chalha"))
         about.set_website("https://github.com/karim88/SupMTI-TextEditor")
         about.set_website_label(g("Github repo."))
