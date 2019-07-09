@@ -13,7 +13,7 @@ class About:
         about.set_icon(
             GdkPixbuf.Pixbuf
                 .new_from_file(image))
-        about.set_version("1.2.1")
+        about.set_version("1.2.2")
         about.set_comments(
             g("A stupid Text Editor made with PyGTK.\nIt's a part of my Python Min-project for SupMTI Rabat."))
         about.set_copyright(g("Copyright (c) 2019 Karim Oulad Chalha"))

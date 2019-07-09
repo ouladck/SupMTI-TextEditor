@@ -1,28 +1,30 @@
 [DEBREATE-0.7.13]
 <<CTRL>>
 Package: supmti-texteditor
-Version: 1.2.1
+Version: 1.2.2
 Maintainer: Karim Oulad Chalha <ouladchalha.k@gmail.com>
 Homepage: https://karimslab.com
 Architecture: all
 Priority: optional
 Depends: python-gi (>=3.1), python3 (>=3.6)
-Description: A stupid Text Editor make with PyGTK.
+Description: A stupid Text Editor made with PyGTK.
  A stupid Text Editor make with PyGTK.
  It's a part of my Python Min-project for SupMTI Rabat.
 
 <</CTRL>>
 <<FILES>>
 1
-/home/karim/PycharmProjects/SupMTI-TextEditor/README.md -> README.md -> /usr/share/SupMTI-TextEditor/
-/home/karim/PycharmProjects/SupMTI-TextEditor/main.py* -> main.py -> /usr/share/SupMTI-TextEditor/
-/home/karim/PycharmProjects/SupMTI-TextEditor/LICENSE -> LICENSE -> /usr/share/SupMTI-TextEditor/
-/home/karim/PycharmProjects/SupMTI-TextEditor/supmti-texteditor.desktop -> supmti-texteditor.desktop -> /usr/share/applications
-/home/karim/PycharmProjects/SupMTI-TextEditor/assets/supmti.png -> supmti.png -> /usr/share/pixmaps
-/home/karim/PycharmProjects/SupMTI-TextEditor/locales -> locales -> /usr/share/locale
-/home/karim/PycharmProjects/SupMTI-TextEditor/windows -> windows -> /usr/share/SupMTI-TextEditor
-/home/karim/PycharmProjects/SupMTI-TextEditor/widgets -> widgets -> /usr/share/SupMTI-TextEditor
-/home/karim/PycharmProjects/SupMTI-TextEditor/dialogs -> dialogs -> /usr/share/SupMTI-TextEditor
+/home/karim/dev/SupMTI-TextEditor/README.md -> README.md -> /usr/share/SupMTI-TextEditor/
+/home/karim/dev/SupMTI-TextEditor/main.py* -> main.py -> /usr/share/SupMTI-TextEditor/
+/home/karim/dev/SupMTI-TextEditor/LICENSE -> LICENSE -> /usr/share/SupMTI-TextEditor/
+/home/karim/dev/SupMTI-TextEditor/supmti-texteditor.desktop -> supmti-texteditor.desktop -> /usr/share/applications
+/home/karim/dev/SupMTI-TextEditor/assets/supmti.png -> supmti.png -> /usr/share/pixmaps
+/home/karim/dev/SupMTI-TextEditor/assets/supmti-logo.png -> supmti-logo.png -> /usr/share/pixmaps
+/home/karim/dev/SupMTI-TextEditor/locales/ar -> ar -> /usr/share/locale
+/home/karim/dev/SupMTI-TextEditor/locales/fr -> fr -> /usr/share/locale
+/home/karim/dev/SupMTI-TextEditor/windows -> windows -> /usr/share/SupMTI-TextEditor
+/home/karim/dev/SupMTI-TextEditor/widgets -> widgets -> /usr/share/SupMTI-TextEditor
+/home/karim/dev/SupMTI-TextEditor/dialogs -> dialogs -> /usr/share/SupMTI-TextEditor
 <</FILES>>
 <<SCRIPTS>>
 <<PREINST>>
@@ -737,7 +739,7 @@ Name=SupMTI TextEditor
 Version=1.0
 Exec=python3 /usr/share/SupMTI-TextEditor/main.py prod
 Comment=A stupid Text Editor make with PyGTK.\nIt's a part of my Python Min-project for SupMTI Rabat.
-Icon=supmti
+Icon=supmti-logo
 Type=Application
 Terminal=false
 StartupNotify=true

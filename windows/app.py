@@ -23,18 +23,8 @@ class App:
         self.textview.on_clear_clicked()
         self.textview.on_replace_clicked()
 
-    def save(self, widget):
-        is_saved, filename = self.open_file_inst.save()
-        if is_saved:
-            self.bar.push(0, filename)
-        else:
-            self.err_dialog = Gtk.MessageDialog(self, Gtk.DialogFlags.MODAL, Gtk.MessageType.INFO,
-                                       Gtk.ButtonsType.OK, g("Alert"))
-            self.err_dialog.format_secondary_text(g("File %s not saved.") % filename)
-            self.err_dialog.show()
-
-    def save_as(self, widget):
-        is_saved, filename = self.open_file_inst.save_as()
+    def save(self, widget, has_name):
+        is_saved, filename = self.open_file_inst.save_as() if has_name else self.open_file_inst.save()
         if is_saved:
             self.bar.push(0, filename)
         else:
@@ -112,11 +102,11 @@ class App:
         self.m.append(self.open)
         """ Save """
         self.save_widget = Gtk.MenuItem(g("Save"))
-        self.save_widget.connect('activate', self.save)
+        self.save_widget.connect('activate', self.save, False)
         self.m.append(self.save_widget)
         """ Save as """
         self.save_widget = Gtk.MenuItem(g("Save as"))
-        self.save_widget.connect('activate', self.save_as)
+        self.save_widget.connect('activate', self.save, True)
         self.m.append(self.save_widget)
         """ Search """
         self.search_menu = Gtk.MenuItem(g('Find'))

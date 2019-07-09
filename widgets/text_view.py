@@ -35,9 +35,7 @@ class TextView:
 
         self.text_view.show()
 
-
-    def on_search_clicked(self):
-        dialog = Search()
+    def test_dialog_response(self, dialog, is_search):
         response = dialog.run()
         if response == Gtk.ResponseType.OK:
             cursor_mark = self.textbuffer.get_insert()
@@ -45,29 +43,29 @@ class TextView:
             if start.get_offset() == self.textbuffer.get_char_count():
                 start = self.textbuffer.get_start_iter()
 
-            self.search_and_mark(dialog.entry.get_text(), start)
+            if is_search:
+                self.search_and_mark(dialog.entry.get_text(), start)
+            else:
+                replaced_text = self.textbuffer.get_text(
+                    self.textbuffer.get_start_iter(),
+                    self.textbuffer.get_end_iter(),
+                    True
+                ).replace(
+                    dialog.entry.get_text(),
+                    dialog.replace.get_text()
+                )
+                self.textbuffer.set_text(replaced_text)
+
+    def on_search_clicked(self):
+        dialog = Search()
+
+        self.test_dialog_response(dialog, True)
 
         dialog.destroy()
 
     def on_replace_clicked(self):
         dialog = Replace()
-        response = dialog.run()
-        if response == Gtk.ResponseType.OK:
-            cursor_mark = self.textbuffer.get_insert()
-            start = self.textbuffer.get_iter_at_mark(cursor_mark)
-            if start.get_offset() == self.textbuffer.get_char_count():
-                start = self.textbuffer.get_start_iter()
-
-            replaced_text = self.textbuffer.get_text(
-                self.textbuffer.get_start_iter(),
-                self.textbuffer.get_end_iter(),
-                True
-            ).replace(
-                dialog.entry.get_text(),
-                dialog.replace.get_text()
-            )
-            self.textbuffer.set_text(replaced_text)
-
+        self.test_dialog_response(dialog, False)
         dialog.destroy()
 
     def search_and_mark(self, text, start):

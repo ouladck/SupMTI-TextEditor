@@ -7,40 +7,40 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-25 03:36+0000\n"
-"PO-Revision-Date: 2019-05-25 04:08+0000\n"
+"POT-Creation-Date: 2019-07-09 21:21+0100\n"
+"PO-Revision-Date: 2019-07-09 21:23+0100\n"
+"Last-Translator: Karim Oulad Chalha <ouladchalha.k@gmail.com>\n"
 "Language-Team: Arabic <ouladchalha.k@gmail.com>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.1\n"
-"Last-Translator: Karim Oulad Chalha <ouladchalha.k@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Language: fr\n"
 
-#: dialogs/about.py:7 windows/app.py:55
+#: dialogs/about.py:9 windows/app.py:79
 msgid "SupMTI-TextEditor"
 msgstr "SupMTI-TextEditor"
 
-#: dialogs/about.py:16
+#: dialogs/about.py:18
 msgid ""
-"A stupid Text Editor make with PyGTK.\n"
+"A stupid Text Editor made with PyGTK.\n"
 "It's a part of my Python Min-project for SupMTI Rabat."
-msgstr "Un stupid editor de vtexte fait en utilisant PyGTK."
+msgstr "Un stupid editor de texte fait en utilisant PyGTK."
 
-#: dialogs/about.py:17
+#: dialogs/about.py:19
 msgid "Copyright (c) 2019 Karim Oulad Chalha"
 msgstr "Copyright (c) 2019 Karim Oulad Chalha"
 
-#: dialogs/about.py:19
+#: dialogs/about.py:21
 msgid "Github repo."
 msgstr "Github repo."
 
-#: dialogs/about.py:24
+#: dialogs/about.py:26
 msgid "translator-credits"
 msgstr "translator-credits"
 
-#: dialogs/open_file.py:12 dialogs/open_file.py:41
+#: dialogs/open_file.py:12 dialogs/open_file.py:50 dialogs/open_file.py:73
 msgid "Please choose a file"
 msgstr "veuillez choisir un fichier"
 
@@ -56,7 +56,7 @@ msgstr "Rechercher et remplacer"
 msgid "Insert text you want to search for:"
 msgstr "Insérer le texte que vous souhaitez rechercher:"
 
-#: dialogs/replace.py:20 dialogs/search.py:21
+#: dialogs/replace.py:20
 msgid "Insert text you want to replace with:"
 msgstr "Insérer le texte que vous souhaitez remplacer par:"
 
@@ -73,46 +73,50 @@ msgstr "Alerte"
 msgid "File %s not saved."
 msgstr "Le fichier %s n'est pas enregistré."
 
-#: windows/app.py:69
+#: windows/app.py:93
 msgid "New file"
 msgstr "Nouveau fichier"
 
-#: windows/app.py:71
+#: windows/app.py:95
 msgid "Menu"
 msgstr "Menu"
 
-#: windows/app.py:76
+#: windows/app.py:100
 msgid "Open file"
 msgstr "Ouvrir un fichier"
 
-#: windows/app.py:80
+#: windows/app.py:104
 msgid "Save"
 msgstr "Enregistrer"
 
-#: windows/app.py:84
+#: windows/app.py:108
+msgid "Save as"
+msgstr "Enregistrer comme"
+
+#: windows/app.py:112
 msgid "Find"
 msgstr "Search"
 
-#: windows/app.py:88
+#: windows/app.py:116
 msgid "Find & Replace"
 msgstr "Rechercher et remplacer"
 
-#: windows/app.py:92
+#: windows/app.py:120
 msgid "Exit"
 msgstr "Sortir"
 
-#: windows/app.py:96
+#: windows/app.py:124
 msgid "Help"
 msgstr "Aide"
 
-#: windows/app.py:101
+#: windows/app.py:129
 msgid "Translate this Application"
 msgstr "Traduire cette application"
 
-#: windows/app.py:105
+#: windows/app.py:133
 msgid "Report a bug"
 msgstr "Signaler un bug"
 
-#: windows/app.py:109
+#: windows/app.py:137
 msgid "About"
 msgstr "À propos"

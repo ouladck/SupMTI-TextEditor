@@ -1,0 +1,24 @@
+E: supmti-texteditor: copyright-file-contains-full-gpl-license
+E: supmti-texteditor: copyright-should-refer-to-common-license-file-for-gpl
+W: supmti-texteditor: description-synopsis-starts-with-article
+W: supmti-texteditor: no-section-field
+W: supmti-texteditor: non-standard-dir-perm usr/ 0775 != 0755
+W: supmti-texteditor: non-standard-dir-perm usr/share/ 0775 != 0755
+W: supmti-texteditor: non-standard-dir-perm usr/share/SupMTI-TextEditor/ 0775 != 0755
+E: supmti-texteditor: package-installs-python-pycache-dir usr/share/SupMTI-TextEditor/dialogs/__pycache__/
+W: supmti-texteditor: non-standard-dir-perm usr/share/SupMTI-TextEditor/dialogs/__pycache__/ 0775 != 0755
+E: supmti-texteditor: package-installs-python-pycache-dir usr/share/SupMTI-TextEditor/widgets/__pycache__/
+W: supmti-texteditor: non-standard-dir-perm usr/share/SupMTI-TextEditor/widgets/__pycache__/ 0775 != 0755
+E: supmti-texteditor: package-installs-python-pycache-dir usr/share/SupMTI-TextEditor/windows/__pycache__/
+W: supmti-texteditor: non-standard-dir-perm usr/share/SupMTI-TextEditor/windows/__pycache__/ 0775 != 0755
+W: supmti-texteditor: non-standard-dir-perm usr/share/applications/ 0775 != 0755
+W: supmti-texteditor: non-standard-dir-perm usr/share/doc/ 0775 != 0755
+W: supmti-texteditor: non-standard-dir-perm usr/share/doc/supmti-texteditor/ 0775 != 0755
+W: supmti-texteditor: non-standard-file-perm usr/share/doc/supmti-texteditor/changelog.gz 0664 != 0644
+W: supmti-texteditor: non-standard-file-perm usr/share/doc/supmti-texteditor/copyright 0664 != 0644
+W: supmti-texteditor: non-standard-dir-perm usr/share/locale/ 0775 != 0755
+W: supmti-texteditor: non-standard-dir-perm usr/share/pixmaps/ 0775 != 0755
+E: supmti-texteditor: md5sums-lists-nonexistent-file usr/share/locale/ar/LC_MESSAGES/supmti-texteditor.p
+W: supmti-texteditor: file-missing-in-md5sums usr/share/locale/ar/LC_MESSAGES/supmti-texteditor.po
+W: supmti-texteditor: desktop-command-not-in-package usr/share/applications/supmti-texteditor.desktop python3
+E: supmti-texteditor: python-script-but-no-python-dep usr/share/SupMTI-TextEditor/main.py #!python3.6
