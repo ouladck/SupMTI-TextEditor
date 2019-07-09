@@ -1,3 +1,6 @@
+ [![CRAN/METACRAN](https://img.shields.io/cran/l/devtools.svg?label=Licence&style=for-the-badge)](https://opensource.org/licenses/GPL-3.0/)
+ [![Made with Python](https://img.shields.io/badge/made%20with-python-yellow.svg?style=for-the-badge)](https://www.python.org/)
+
 # SupMTI-TextEditor
 
 Un éditer de texte fait en utilisant PyGTK.
